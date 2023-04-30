@@ -1,5 +1,5 @@
 {
-  "name": "nodejs crawller",
+  "name": "nodejs-crawller",
   "version": "1.0.0",
   "description": "it crawl given sites and grab product details",
   "main": "src/index.js",
