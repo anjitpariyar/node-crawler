@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_OPTIONS='--inspect' ts-node src/index.ts",
+    "dev": "cross-env NODE_OPTIONS='--inspect' ts-node src",
     "build": "rimraf dist && tsc ",
     "check": "tsc --project tsconfig.json"
   },

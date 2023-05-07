@@ -1,11 +1,14 @@
 import axios from "axios";
 import getProductDetails from "./components/getProductDetails";
 const cheerio = require("cheerio");
+const util = require("util");
 
 const main = async () => {
   console.log("Hello, World!");
   //   this is first page to visit
-  const paginationURLsToVisit = ["https://scrapeme.live/shop"];
+  const paginationURLsToVisit = [
+    "https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=2023-05-08;checkout=2023-05-09;",
+  ];
   // keep track of visited pages
   const visitedURLs = [];
   const maxPages = 2;
@@ -35,31 +38,25 @@ const main = async () => {
     //========================
     //initial steps end here
     //========================
-
     // retrieving the product URLs
-    $(".product.type-product  a.woocommerce-LoopProduct-link").each(
-      (index, element) => {
+    [...$(".a826ba81c4.fe821aea6c.da89aeb942")]
+      .splice(0, 1)
+      .forEach((element) => {
         // updating productURLs
-        const productURL = $(element).attr("href");
+        const productURL = $(element).find("a").attr("href");
         productURLs.add(productURL);
-      }
-    );
+      });
   }
 
   // getting product URLs
-
   // use map to transform the array of values using the async function
-
-  //   console.log([...productURLs]);
   const productMap = [...productURLs].map(async (url) => {
     let resp = getProductDetails(url);
-    // console.log("after indi", resp);
     return resp;
   });
 
   return Promise.all(productMap)
     .then((results) => {
-      //   console.log("results", results);
       resp = results;
       return resp;
     })
@@ -71,7 +68,7 @@ const main = async () => {
 };
 main()
   .then((resp) => {
-    console.log("response", resp);
+    console.log("response", util.inspect(resp, { depth: null }));
     process.exit(0);
   })
   .catch((e) => {
