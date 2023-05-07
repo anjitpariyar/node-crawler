@@ -1,13 +1,16 @@
 import axios from "axios";
-import getProductDetails from "./components/getProductDetails";
 const cheerio = require("cheerio");
 const util = require("util");
+// utils
+import getProductDetails from "./components/getProductDetails";
+import { getDate } from "./utils";
 
 const main = async () => {
   console.log("Hello, World!");
+
   //   this is first page to visit
   const paginationURLsToVisit = [
-    "https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=2023-05-08;checkout=2023-05-09;",
+    `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=${getDate[0]};checkout=${getDate[1]};`,
   ];
   // keep track of visited pages
   const visitedURLs = [];
