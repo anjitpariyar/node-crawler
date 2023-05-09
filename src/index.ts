@@ -81,8 +81,8 @@ const getStarted = async () => {
     let resp = await main();
     // console.log("response", util.inspect(resp, { depth: null }));
     if (resp) {
-      // let resp2: any = await HotelAdd(resp as IHotel[]);
-      console.log("response", resp);
+      let resp2: any = await HotelAdd(resp as IHotel[]);
+      console.log("response", resp2);
       process.exit(0);
     }
   } catch (err) {
