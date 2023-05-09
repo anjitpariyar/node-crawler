@@ -22,3 +22,5 @@ This project relies on the following dependencies:
 ## Development
 
 To run the project in development mode with live reloading, run: `yarn dev`
+
+## to run specifi file

@@ -4,14 +4,20 @@ const util = require("util");
 // utils
 import getProductDetails from "./components/getProductDetails";
 import { getDate } from "./utils";
+import connectDb from "./db/Dbconnect";
+import { HotelAdd } from "./controller/Hotel";
+import { IHotel } from "./model/Hotel.modal";
 
 const main = async () => {
   console.log("Hello, World!");
-
+  connectDb();
   //   this is first page to visit
   const paginationURLsToVisit = [
-    `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=${getDate[0]};checkout=${getDate[1]};`,
+    `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=${
+      getDate()[0]
+    };checkout=${getDate()[1]};`,
   ];
+
   // keep track of visited pages
   const visitedURLs = [];
   const maxPages = 2;
@@ -69,13 +75,20 @@ const main = async () => {
       return resp;
     });
 };
-main()
-  .then((resp) => {
-    console.log("response", util.inspect(resp, { depth: null }));
-    process.exit(0);
-  })
-  .catch((e) => {
-    // logging the error message
-    console.error(e);
+
+const getStarted = async () => {
+  try {
+    let resp = await main();
+    // console.log("response", util.inspect(resp, { depth: null }));
+    if (resp) {
+      // let resp2: any = await HotelAdd(resp as IHotel[]);
+      console.log("response", resp);
+      process.exit(0);
+    }
+  } catch (err) {
+    console.error(err);
     process.exit(1);
-  });
+  }
+};
+
+getStarted();

@@ -46,7 +46,7 @@ export default async function getProductDetails(paginationURLsToVisit) {
     pid: getAidFromUrl(paginationURLsToVisit),
     name: $("#hotelTmpl #wrap-hotelpage-top .pp-header__title").text(),
     location: $("#hotelTmpl .address_clean .hp_address_subtitle").text(),
-    price: $("#hotelTmpl .bui-price-display__value .bui-u-sr-only").text(),
+    price: $("#hotelTmpl .bui-price-display__value span").text() || "NA",
     about: $("#hotelTmpl  #property_description_content").text(),
     service: service,
     food: [],
