@@ -12,10 +12,28 @@ const main = async () => {
   console.log("Hello, World!");
   connectDb();
   //   this is first page to visit
+  // pokh, ktm, chitwan, bhaktapur
   const paginationURLsToVisit = [
     `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&dest_id=-1022488&dest_type=city&checkin=${
       getDate()[0]
-    };checkout=${getDate()[1]};`,
+    }&checkout=${getDate()[1]};`,
+    `https://www.booking.com/searchresults.en-gb.html?ss=Kathmandu&ssne=Kathmandu&ssne_untouched=Kathmandu&label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&lang=en-gb&sb=1&src_elem=sb&src=searchresults&dest_id=-1022136&dest_type=city&&checkin=${
+      getDate()[0]
+    }&checkout=${
+      getDate()[1]
+    }&group_adults=1&no_rooms=1&group_children=0&sb_travel_purpose=leisures`,
+    `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&checkin=${
+      getDate()[0]
+    }&checkout=${
+      getDate()[1]
+    }&dest_id=900049092&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0`,
+    `https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaKsBiAEBmAEJuAEXyAEM2AEB6AEB-AEMiAIBqAIDuALf_7yiBsACAdICJGJiZWM3NWY5LWZmOWMtNDY2Mi1hMWQ0LWNiNGZkZDZmY2I0ZNgCBuACAQ&sid=e1eb3666e37647366e03ca0e86dfd6cb&aid=356980&checkin=${
+      getDate()[0]
+    }&checkout=${
+      getDate()[1]
+    }&dest_id=-1021748&dest_type=city&group_adults=1&req_adults=1&no_rooms=1&group_children=0&req_children=0
+    
+    `,
   ];
 
   // keep track of visited pages
@@ -49,7 +67,7 @@ const main = async () => {
     //========================
     // retrieving the product URLs
     [...$(".a826ba81c4.fe821aea6c.da89aeb942")]
-      .splice(0, 1)
+      .splice(0, 5)
       .forEach((element) => {
         // updating productURLs
         const productURL = $(element).find("a").attr("href");
@@ -81,8 +99,8 @@ const getStarted = async () => {
     let resp = await main();
     // console.log("response", util.inspect(resp, { depth: null }));
     if (resp) {
-      // let resp2: any = await HotelAdd(resp as IHotel[]);
-      console.log("response", resp);
+      let resp2: any = await HotelAdd(resp as IHotel[]);
+      console.log("response", resp2);
       process.exit(0);
     }
   } catch (err) {

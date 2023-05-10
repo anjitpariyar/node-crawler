@@ -11,7 +11,6 @@ export default async function getProductDetails(paginationURLsToVisit) {
   $("#hotelTmpl .hp--popular_facilities .e5e0727360 .a815ec762e").each(
     function () {
       service.push({
-        // svg: $(this).find("svg"),
         svg: "",
         name: $(this).find(".db312485ba").text(),
       });
