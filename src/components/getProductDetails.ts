@@ -41,12 +41,16 @@ export default async function getProductDetails(paginationURLsToVisit) {
   if ($(".b2b990caf1 .b5cd09854e.d10a6220b4").text()) {
     rate = parseInt($(".b2b990caf1 .b5cd09854e.d10a6220b4").text()) / 2;
   }
+  let price = "NA";
+  price = $("#hotelTmpl .prco-valign-middle-helper").text();
+  let regex = /NPR\s+\d{1,3}(,\d{3})*\b/;
+  price = price.match(regex)[0] ?? "NA";
 
   const productDetails = {
     pid: getAidFromUrl(paginationURLsToVisit),
     name: $("#hotelTmpl #wrap-hotelpage-top .pp-header__title").text(),
     location: $("#hotelTmpl .address_clean .hp_address_subtitle").text(),
-    price: $("#hotelTmpl .bui-price-display__value span").text() || "NA",
+    price: price,
     about: $("#hotelTmpl  #property_description_content").text(),
     service: service,
     food: [],
