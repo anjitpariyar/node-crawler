@@ -1,6 +1,5 @@
 import axios from "axios";
 const cheerio = require("cheerio");
-const util = require("util");
 // utils
 import getProductDetails from "./components/getProductDetails";
 import { getDate } from "./utils";

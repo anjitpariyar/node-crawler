@@ -4,7 +4,7 @@ import mongoose from "mongoose";
  * A model for the post hotel database
  */
 
-export interface ICategoryScheme extends mongoose.Document {
+export interface ICategory {
   icon: string;
   name: string;
   backgroundImage: string;
@@ -38,4 +38,4 @@ const CategoryScheme = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model<ICategoryScheme>("Category", CategoryScheme);
+export default mongoose.model<ICategory>("Category", CategoryScheme);

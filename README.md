@@ -24,3 +24,5 @@ This project relies on the following dependencies:
 To run the project in development mode with live reloading, run: `yarn dev`
 
 ## to run specifi file
+
+`yarn run ts-node src/category.ts`
