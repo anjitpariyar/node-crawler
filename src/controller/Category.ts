@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { validationResult } from "express-validator";
 import ResponseObj from "./Response";
 import Category, { ICategory } from "../model/Category.modal";
@@ -18,24 +17,33 @@ const CategoryAdd = async (data: ICategory[]): Promise<void> => {
       throw respObject;
     }
 
-    try {
-      await Category.findOneAndUpdate({ ...item });
+    let newHotel = new Category();
+    newHotel.name = item.name;
+    newHotel.icon = item.icon;
+    newHotel.backgroundImage = item.backgroundImage;
+    newHotel.about = item.about;
+    newHotel.destination = item.destination;
 
-      let resData = new ResponseObj(
-        200,
-        item,
-        {},
-        "category added successfully"
-      );
-      return resData;
+    try {
+      let response = await newHotel.save();
+      if (response) {
+        let resData = new ResponseObj(
+          200,
+          item,
+          {},
+          "category added successfully"
+        );
+        return resData;
+      }
     } catch (error) {
+      console.log("error", error);
       let errorObject: object = {};
       if (error instanceof Error) errorObject = error;
       let resData = new ResponseObj(
         400,
         errorObject,
         {},
-        "Failed to add new Hotel"
+        "Failed to add new category"
       );
       throw resData;
     }
