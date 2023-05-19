@@ -6,8 +6,6 @@ export default async function getProductDetails(paginationURLsToVisit) {
   const pageHTML = await axios.get(paginationURLsToVisit);
   const $ = cheerio.load(pageHTML.data);
 
-  // what do i need ?
-
   // grab service and image
   let service = [];
   $("#hotelTmpl .hp--popular_facilities .e5e0727360 .a815ec762e").each(
