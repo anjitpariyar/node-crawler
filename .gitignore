@@ -3,3 +3,5 @@
 tsconfig
 yarn.lock
 .env
+.yarnrc.yml
+.yarn*

@@ -3,8 +3,7 @@ const cheerio = require("cheerio");
 // utils
 import getDestinationDetails from "./components/getDestinationDetails";
 import connectDb from "./db/Dbconnect";
-import { HotelAdd } from "./controller/Hotel";
-import { IHotel } from "./model/Hotel.modal";
+const util = require("node:util");
 const baseUrl = "https://www.tripadvisor.com";
 
 const main = async () => {
@@ -37,6 +36,8 @@ const main = async () => {
     // initializing cheerio on the current webpage
     const $ = cheerio.load(pageHTML.data);
 
+    console.log("data", pageHTML);
+
     //========================
     //initial steps end here
     //========================
@@ -55,27 +56,28 @@ const main = async () => {
   console.log("productUrl", productURLs);
   // getting product URLs
   // use map to transform the array of values using the async function
-  const productMap = [...productURLs].map(async (url) => {
-    let resp = getDestinationDetails(url);
+  const productMap = [...productURLs].map(async (url, index) => {
+    let resp = getDestinationDetails(url, index);
     return resp;
   });
 
-  // return Promise.all(productMap)
-  //   .then((results) => {
-  //     resp = results;
-  //     return resp;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     resp = "fail";
-  //     return resp;
-  //   });
+  return Promise.all(productMap)
+    .then((results) => {
+      resp = results;
+      return resp;
+    })
+    .catch((err) => {
+      console.log(err);
+      resp = "fail";
+      return resp;
+    });
 };
 
 const getStarted = async () => {
   try {
     let resp = await main();
-    // console.log("response", util.inspect(resp, { depth: null }));
+
+    console.log("response", util.inspect(resp, { depth: null }));
     process.exit(0);
 
     // if (resp) {

@@ -1,62 +1,86 @@
 const cheerio = require("cheerio");
 import axios from "axios";
 import { getAidFromUrl } from "../utils";
+import { IDestination } from "src/model/Destination.modal";
 
-export default async function getProductDetails(paginationURLsToVisit) {
+export default async function getProductDetails(paginationURLsToVisit, index) {
   const pageHTML = await axios.get(paginationURLsToVisit);
   const $ = cheerio.load(pageHTML.data);
 
-  // grab service and image
-  let service = [];
-  $("#hotelTmpl .hp--popular_facilities .e5e0727360 .a815ec762e").each(
-    function () {
-      service.push({
-        svg: "",
-        name: $(this).find(".db312485ba").text(),
-      });
-    }
-  );
+  // grab feature and image
+  let feature = [];
+  $("main .vwOfI.nlaXM .C .VntFx .f").each(function () {
+    feature.push({
+      svg: "",
+      name: $(this).find(".biGQs").text(),
+    });
+  });
+
+  // grab the highlights
+  let highlight: string[] = [];
+  $("main .vwOfI.nlaXM .C ._R .biGQs.pZUbB.KxBGd ul li").each(function () {
+    highlight.push($(this).text());
+  });
+
+  // grab the extra
+  let extra = [];
+  $("main .vwOfI.nlaXM .C>dl>dt").each(function () {
+    extra.push({
+      title: $(this).text(),
+      text: $(this).next().finc("ul li").text(),
+    });
+  });
+
+  // grab the itinerary
+  let itinerary = [];
+  [...$("main .MLtLP.f .ckgbG ul li")].shift().each(function () {
+    itinerary.push({
+      title: $(this).find(".BnVmm .biGQs.fiohW.fOtGX").text(),
+      text: $(this).next().find(".BnVmm .biGQs.pZUbB.KxBGd").text(),
+    });
+  });
 
   // grab the reviews
   let reviews = [];
-  $("#hotelTmpl .fff8c74b55.cb9e386163 li").each(function () {
-    if ($(this).find(".db29ecfbe2.c688f151a2").text())
-      reviews.push({
-        name: $(this).find(".f9afbb0024.f0d4d6a2f5").text(),
-        text: $(this).find(".db29ecfbe2.c688f151a2").text(),
-      });
-  });
+  [...$("main .vwOfI #REVIEWS .LbPSX>div>div")]
+    .splice(0, 5)
+    .forEach(function (element) {
+      if ($(element).find(".mwPje").text())
+        reviews.push({
+          name: $(element).find(".mwPje .biGQs.fiohW.fOtGX").text(),
+          text: $(element).find(".fIrGe.bgMZj").text(),
+        });
+    });
 
   // grab gallery
   let gallery = [];
-  $("#hotelTmpl .gallery-side-reviews-wrapper a.bh-photo-grid-item").each(
-    function () {
-      if ($(this).attr("data-thumb-url"))
-        gallery.push($(this).attr("data-thumb-url"));
-    }
-  );
+  $("main .hJiTo section .tdAhP .ARdFa button picture img").each(function () {
+    if ($(this).attr("src")) gallery.push($(this).attr("src"));
+  });
 
   let rate: number | string = "NA";
-  if ($(".b2b990caf1 .b5cd09854e.d10a6220b4").text()) {
-    rate = parseInt($(".b2b990caf1 .b5cd09854e.d10a6220b4").text()) / 2;
-  }
-  let price = "NA";
-  price = $("#hotelTmpl .prco-valign-middle-helper").text();
-  let regex = /NPR\s+\d{1,3}(,\d{3})*\b/;
-  price = price.match(regex)[0] ?? "NA";
+  rate = $("main .vwOfI #REVIEWS .bdeBj .biGQs").text();
 
-  const productDetails = {
+  let price: number | string = "NA";
+  price = $("main .vwOfI.nlaXM .qiTJh").text();
+
+  let categoryId = "0";
+
+  const productDetails: IDestination = {
     pid: getAidFromUrl(paginationURLsToVisit),
-    name: $("#hotelTmpl #wrap-hotelpage-top .pp-header__title").text(),
-    location: $("#hotelTmpl .address_clean .hp_address_subtitle").text(),
+    name: $("main .hJiTo section .qyzqH  h1").text(),
     price: price,
-    about: $("#hotelTmpl  #property_description_content").text(),
-    service: service,
-    food: [],
+    // location: $("#hotelTmpl .address_clean .hp_address_subtitle").text(),
+    about: $("main .hJiTo section .wAiJR .SHPAN .fIrGe _T.bgMZj").text(),
+    gallery: gallery,
+    feature: feature,
+    highlight: highlight,
+    extra: extra,
+    itinerary: itinerary,
     reviews: reviews,
     rate: rate,
-    gallery: gallery,
     url: paginationURLsToVisit,
+    categoryId: categoryId,
   };
   //   console.log("inside", productDetails);
   return productDetails;

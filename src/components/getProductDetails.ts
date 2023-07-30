@@ -10,7 +10,7 @@ export default async function getProductDetails(paginationURLsToVisit) {
 
   // grab service and image
   let service = [];
-  $("#hotelTmpl .hp--popular_facilities .e5e0727360 .a815ec762e").each(
+  $("#hotelTmpl .hp--popularf_acilities .e5e0727360 .a815ec762e").each(
     function () {
       service.push({
         svg: "",
