@@ -3,40 +3,43 @@ import mongoose from "mongoose";
 /**
  * A model for the post Destination database
  */
-interface Feature {
+export interface IDesFeature {
   svg: string;
   name: string;
 }
 
-interface Extra {
+export interface IDesExtra {
   title: string;
   text: string;
 }
 
-interface Itinerary {
+export interface IDesItinerary {
   title: string;
   text: string;
 }
 
-interface Review {
+export interface IDesReview {
   name: string;
   text: string;
 }
 
-export interface IDestination extends mongoose.Document {
+// extends mongoose.Document
+export interface IDestination {
   pid: string; // Assuming `getAidFromUrl` returns a string
   name: string;
+  location?: string;
   price: number | string; // It can be either a number or a string
   about: string;
   gallery: string[];
-  feature: Feature[];
+  feature: IDesFeature[];
   highlight: string[];
-  extra: Extra[];
-  itinerary: Itinerary[];
-  reviews: Review[];
+  extra: IDesExtra[];
+  itinerary: IDesItinerary[];
+  reviews: IDesReview[];
   rate: number | string; // It can be either a number or a string
   url: string;
-  categoryId: string; // Replace 'any' with the actual type for 'category'
+  categoryId: string;
+  // Replace 'any' with the actual type for 'category'
 }
 
 const DestinationSchema = new mongoose.Schema(

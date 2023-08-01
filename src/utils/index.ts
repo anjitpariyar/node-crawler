@@ -1,6 +1,14 @@
-export function getAidFromUrl(url) {
+const { v4: uuidv4 } = require("uuid");
+
+export function getAidFromUrl(url: string): string {
   const urlParams = new URLSearchParams(url.split("?")[1]);
   return urlParams.get("aid");
+}
+
+export function getAidFromUrlDestination(url: string): string {
+  const regex = /\/(\w{1,})-/;
+  const match = url.match(regex);
+  return match ? match[1] : uuidv4();
 }
 
 export const getDate = () => {
