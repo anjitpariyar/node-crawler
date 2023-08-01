@@ -1,6 +1,6 @@
 const cheerio = require("cheerio");
 import axios from "axios";
-import { getAidFromUrl } from "../utils";
+import { getAidFromUrlDestination } from "../utils";
 import {
   IDesExtra,
   IDesFeature,
@@ -79,7 +79,7 @@ export default async function getProductDetails(paginationURLsToVisit, index) {
   let categoryId: string = "0";
 
   const productDetails: IDestination = {
-    pid: getAidFromUrl(paginationURLsToVisit),
+    pid: getAidFromUrlDestination(paginationURLsToVisit),
     name: $("h1.biGQs.fiohW.ncFvv.EVnyE").text(),
     price: price,
     location: "",

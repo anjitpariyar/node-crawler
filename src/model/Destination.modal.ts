@@ -4,7 +4,7 @@ import mongoose from "mongoose";
  * A model for the post Destination database
  */
 export interface IDesFeature {
-  svg: string;
+  svg?: string | null;
   name: string;
 }
 
@@ -31,7 +31,7 @@ export interface IDestination {
   price: number | string; // It can be either a number or a string
   about: string;
   gallery: string[];
-  feature: IDesFeature[];
+  feature?: IDesFeature[];
   highlight: string[];
   extra: IDesExtra[];
   itinerary: IDesItinerary[];
@@ -46,12 +46,13 @@ const DestinationSchema = new mongoose.Schema(
   {
     pid: { type: String, required: true },
     name: { type: String, required: true },
+    location: { type: String, required: true },
     price: { type: mongoose.Schema.Types.Mixed, required: true }, // Allow both number and string
     about: { type: String, required: true },
     gallery: { type: [String], required: true },
     feature: [
       {
-        svg: { type: String, required: true },
+        svg: { type: String, required: false },
         name: { type: String, required: true },
       },
     ],
@@ -65,7 +66,7 @@ const DestinationSchema = new mongoose.Schema(
     itinerary: [
       {
         title: { type: String, required: true },
-        text: { type: String, required: true },
+        text: { type: String, required: false },
       },
     ],
     reviews: [
@@ -76,9 +77,9 @@ const DestinationSchema = new mongoose.Schema(
     ],
     rate: { type: mongoose.Schema.Types.Mixed, required: true }, // Allow both number and string
     url: { type: String, required: true },
-    category: { type: mongoose.Schema.Types.Mixed }, // Replace with the actual type for 'category' if available
+    categoryId: { type: String, required: true }, // Replace with the actual type for 'category' if available
   },
   { timestamps: true }
 );
 
-export default mongoose.model<IDestination>("Destinations", DestinationSchema);
+export default mongoose.model<IDestination>("Destination", DestinationSchema);

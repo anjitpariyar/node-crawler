@@ -1,4 +1,3 @@
-import axios from "axios";
 import connectDb from "./db/Dbconnect";
 import { ICategory } from "./model/Category.modal";
 import CategoryAdd from "./controller/Category";

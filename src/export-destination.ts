@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 // utils
 import getDestinationDetails from "./components/getDestinationDetails";
 import { HEADERS } from "./utils/config";
-const util = require("node:util");
+// const util = require("node:util");
 const fs = require("fs");
 const baseUrl = "https://www.tripadvisor.com";
 

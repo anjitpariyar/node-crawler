@@ -6,7 +6,7 @@ export function getAidFromUrl(url: string): string {
 }
 
 export function getAidFromUrlDestination(url: string): string {
-  const regex = /\/(\w{1,})-/;
+  const regex = /\/([\w-]+)\.html/;
   const match = url.match(regex);
   return match ? match[1] : uuidv4();
 }
