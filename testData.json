@@ -1,3 +1,229 @@
 {
-  "data": []
+  "data": [
+    {
+      "title": "Beehive Hostel Kathmandu",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$4.00",
+      "rating": "4.2/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/2201190000016l18jF8F9_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Hyatt Place Kathmandu",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$118.00",
+      "rating": "4.6/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0223012000983750t3124_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Airport Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$47.00",
+      "rating": "3.4/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/220b1900000168pyw83DC_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Kathmandu Peace Guesthouse",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$18.00",
+      "rating": "4.2/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0224012000akysntzE24C_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Timber House",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$34.00",
+      "rating": "4.5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/02030120009w5d392091C_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Hotel Yala Peak",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$12.00",
+      "rating": "4.2/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/22080u000000jaogv12B2_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Alpine Hotel & Apartment",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$12.00",
+      "rating": "4.5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0201e120009dmg12e4182_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Kathmandu Grand Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$25.00",
+      "rating": "4.5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/200h0y000000m376d8B9E_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Himalayan Suite Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$58.00",
+      "rating": "4.3/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0205m120008ft36bk8FFA_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Nepal Pavilion Inn",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$21.00",
+      "rating": "4.5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/200s170000012qcfuA583_R_454_358_R5.jpg"
+    },
+    {
+      "title": "World Heritage Hotel and Apartments",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$18.00",
+      "rating": "4.3/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/220i0y000000m958i756D_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Woodapple Hotel and Spa",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$50.00",
+      "rating": "4.7/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0203w120008hu6rwhD12E_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Hotel Mulberry",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$83.00",
+      "rating": "4.5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/220b0u000000jehgcD1F6_R_454_358_R5.jpg"
+    },
+    {
+      "title": "DOM Himalaya Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$36.00",
+      "rating": "4.3/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0226k120009zqwode6602_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Hotel Phoniex",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$5.00",
+      "rating": "5/5   ",
+      "url": "",
+      "imageSrc": "https://ak-d.tripcdn.com/images/0201c12000bmsgx57BCEC_R_454_358_R5.jpg"
+    },
+    {
+      "title": "Family Peace House",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$4.00",
+      "rating": "4.1/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Shanker",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$62.00",
+      "rating": "4/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Everest Nepal",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$27.00",
+      "rating": "4.6/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Barahi Kathmandu",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$82.00",
+      "rating": "4.9/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Yak & Yeti",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$145.00",
+      "rating": "4/5   ",
+      "url": ""
+    },
+    {
+      "title": "Kathmandu Garden Home",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$18.00",
+      "rating": "4.2/5   ",
+      "url": ""
+    },
+    {
+      "title": "The Everest Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$86.00",
+      "rating": "4.2/5   ",
+      "url": ""
+    },
+    {
+      "title": "Capital Boutique Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$23.00",
+      "rating": "4.4/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Sapana Garden",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$19.00",
+      "rating": "4.4/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Osho Home",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$16.00",
+      "rating": "4.5/5   ",
+      "url": ""
+    },
+    {
+      "title": "Haatiban Resort",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$89.00",
+      "rating": "4.3/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Crowne Imperial",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$50.00",
+      "rating": "4.3/5   ",
+      "url": ""
+    },
+    {
+      "title": "Kasthamandap Boutique Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$23.00",
+      "rating": "4.7/5   ",
+      "url": ""
+    },
+    {
+      "title": "Hotel Ambassador by ACE Hotels",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$77.00",
+      "rating": "4.4/5   ",
+      "url": ""
+    },
+    {
+      "title": "Mila Hotel",
+      "location": "Kathmandu, Bagmati, Nepal",
+      "price": "$33.00",
+      "rating": "4.7/5   ",
+      "url": ""
+    }
+  ]
 }
