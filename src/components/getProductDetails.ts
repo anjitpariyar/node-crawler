@@ -10,7 +10,7 @@ export default async function getProductDetails(paginationURLsToVisit) {
 
   // grab service and image
   let service = [];
-  $("#hotelTmpl .hp--popularf_acilities .e5e0727360 .a815ec762e").each(
+  $("#hotelTmpl .hp--popular_facilities .e5e0727360 .a815ec762e").each(
     function () {
       service.push({
         svg: "",
@@ -21,11 +21,11 @@ export default async function getProductDetails(paginationURLsToVisit) {
 
   // grab the reviews
   let reviews = [];
-  $("#hotelTmpl .fff8c74b55.cb9e386163 li").each(function () {
-    if ($(this).find(".db29ecfbe2.c688f151a2").text())
+  $("#hotelTmpl .e567fd4fff.e64b686da7 li").each(function () {
+    if ($(this).find(".a3332d346a.e6208ee469").text())
       reviews.push({
-        name: $(this).find(".f9afbb0024.f0d4d6a2f5").text(),
-        text: $(this).find(".db29ecfbe2.c688f151a2").text(),
+        name: $(this).find(".a3332d346a.e6208ee469").text(),
+        text: $(this).find(".featuredreview-text").text(),
       });
   });
 
@@ -45,7 +45,7 @@ export default async function getProductDetails(paginationURLsToVisit) {
   let price = "NA";
   price = $("#hotelTmpl .prco-valign-middle-helper").text();
   let regex = /NPR\s+\d{1,3}(,\d{3})*\b/;
-  price = price.match(regex)[0] ?? "NA";
+  price = price?.match(regex)?.length > 0 ? price?.match(regex)[0] : "NA";
 
   const productDetails = {
     pid: getAidFromUrl(paginationURLsToVisit),

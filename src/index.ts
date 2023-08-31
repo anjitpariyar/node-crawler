@@ -1,15 +1,17 @@
 import axios from "axios";
 const cheerio = require("cheerio");
+const fs = require("fs");
+
 // utils
 import getProductDetails from "./components/getProductDetails";
 import { getDate } from "./utils";
-import connectDb from "./db/Dbconnect";
-import { HotelAdd } from "./controller/Hotel";
-import { IHotel } from "./model/Hotel.modal";
+// import connectDb from "./db/Dbconnect";
+// import { HotelAdd } from "./controller/Hotel";
+// import { IHotel } from "./model/Hotel.modal";
 
 const main = async () => {
   console.log("Hello, World!");
-  connectDb();
+  // connectDb();
   //   this is first page to visit
   // pokh, ktm, chitwan, bhaktapur
   const paginationURLsToVisit = [
@@ -65,7 +67,7 @@ const main = async () => {
     //initial steps end here
     //========================
     // retrieving the product URLs
-    [...$(".a826ba81c4.fe821aea6c.da89aeb942")]
+    [...$(".c82435a4b8.a178069f51.a6ae3c2b40")]
       .splice(0, 5)
       .forEach((element) => {
         // updating productURLs
@@ -98,8 +100,19 @@ const getStarted = async () => {
     let resp = await main();
     // console.log("response", util.inspect(resp, { depth: null }));
     if (resp) {
-      let resp2: any = await HotelAdd(resp as IHotel[]);
-      console.log("response", resp2);
+      // let resp2: any = await HotelAdd(resp as IHotel[]);
+      const dataObject = {
+        data: resp,
+      };
+      const jsonData = JSON.stringify(dataObject, null, 2);
+      const filePath = "./hotelsData.json";
+      // Write the JSON data to the file
+      try {
+        fs.writeFileSync(filePath, jsonData);
+        console.log("JSON file has been saved.");
+      } catch (err) {
+        console.error("Error writing JSON file:", err);
+      }
       process.exit(0);
     }
   } catch (err) {

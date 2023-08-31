@@ -1,6 +1,8 @@
 # Node.js Crawler
 
-This is a Node.js web crawler that grabs product details from a given website.
+Node Crawler is a web scraping tool built with Node.js that allows you to extract data from websites and export to json. It's a flexible and customizable solution for scraping data for various purposes.
+
+**Note**: Be aware that websites may change their structure over time, so ensure that the class names and selectors used in this script are up to date.
 
 ## By default,
 
@@ -23,6 +25,6 @@ This project relies on the following dependencies:
 
 To run the project in development mode with live reloading, run: `yarn dev`
 
-## to run specifi file
+## to run specific file
 
 `yarn run ts-node src/category.ts`
